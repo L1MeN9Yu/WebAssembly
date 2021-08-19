@@ -1,0 +1,27 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  build_macos:
+    name: macOS
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run tests
+        run: swift test
+
+  build_ubuntu:
+    name: macOS
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: YOCKOW/Action-setup-swift@v1
+      - name: Run tests
+        run: swift test

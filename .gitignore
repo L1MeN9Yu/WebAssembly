@@ -1,0 +1,13 @@
+.DS_Store
+/.build
+/Packages
+/*.xcodeproj
+xcuserdata/
+DerivedData/
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+
+# CWasm3
+.wasm3
+
+# Jetbrains
+.idea
