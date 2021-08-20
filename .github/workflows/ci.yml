@@ -18,10 +18,11 @@ jobs:
         run: swift test
 
   build_ubuntu:
-    name: macOS
+    name: ubuntu
     runs-on: ubuntu-latest
+    container:
+      image: swift:5.4.2-focal
     steps:
       - uses: actions/checkout@v2
-      - uses: YOCKOW/Action-setup-swift@v1
       - name: Run tests
         run: swift test
