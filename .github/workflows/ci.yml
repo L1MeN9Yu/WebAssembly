@@ -11,7 +11,7 @@ on:
 jobs:
   build_macos:
     name: macOS
-    runs-on: macos-latest
+    runs-on: macos-11.5
     steps:
       - uses: maxim-lobanov/setup-xcode@v1
         with:
