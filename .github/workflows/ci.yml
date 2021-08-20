@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run tests
-        run: swift test
+        run: swift test -v
 
   build_ubuntu:
     name: ubuntu
