@@ -9,6 +9,7 @@ public enum WebAssemblyError: Error {
     case couldNotParseModule
     case couldNotLoadModule
     case couldNotFindFunction(String)
+    case globalNotFound(String)
     case onCallFunction(String)
     case invalidFunctionReturnType
     case invalidStackPointer

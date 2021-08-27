@@ -11,7 +11,7 @@ final class WebAssemblyTests: XCTestCase {
 
         XCTAssertThrowsError(try mod.constant(version: 11)) { error in
             guard case .wasm3Error(let msg) = error as? WebAssemblyError
-            else { XCTFail(); return }
+                else { XCTFail(); return }
             XCTAssertEqual("function lookup failed", msg)
         }
     }
@@ -90,10 +90,10 @@ final class WebAssemblyTests: XCTestCase {
         let invalidOffset = size - message.utf8.count + 1
         XCTAssertThrowsError(try mod.write(message, to: invalidOffset)) { error in
             guard let wasmError = error as? WebAssemblyError
-            else { return XCTFail() }
+                else { return XCTFail() }
 
             guard case .invalidMemoryAccess = wasmError
-            else { return XCTFail() }
+                else { return XCTFail() }
         }
 
         // Ensure memory hasn't been modified
@@ -101,5 +101,10 @@ final class WebAssemblyTests: XCTestCase {
             message,
             try mod.string(at: validOffset, length: message.utf8.count)
         )
+    }
+
+    func testGlobal() throws {
+        let globalModule = try GlobalModule()
+        try globalModule.run()
     }
 }

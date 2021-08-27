@@ -11,8 +11,8 @@ public final class Interpreter {
 
     let environment: IM3Environment
     let runtime: IM3Runtime
+    let module: IM3Module
 
-    private let module: IM3Module
     private let bytes: [UInt8]
 
     private let lock = Lock()
@@ -181,7 +181,7 @@ extension Interpreter {
 
 // MARK: - Static
 
-private extension Interpreter {
+extension Interpreter {
     static func execute(_ block: @autoclosure () throws -> M3Result?) throws {
         if let result = try block() {
             throw WebAssemblyError.wasm3Error(String(cString: result))
